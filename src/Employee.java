@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Employee {
     private static int counter = 0;
     private final String name;
@@ -9,23 +11,33 @@ public class Employee {
         this.name = name;
         this.salary = salary;
         this.department = department;
-        this.id = counter++;
-    }
-    public  int getId() {return id;}
-
-    public String getName() {return this.name;}
-
-    public int getSalary() {return this.salary;}
-
-    public static int getCounter(){
-        return counter;
+        counter++;
+        id = counter;
     }
 
-    public void setSalary(int salary) {this.salary = salary;}
 
-    public int getDepartment() { return this.department;}
+    public String getName() {
+        return name;
+    }
 
-    public void setDepartment(int department) { this.department = department;}
+    public int getSalary() {
+                return salary;
+    }
+
+    public int getDepartment() {
+        return department;
+    }
+    public  int getId() {
+        return id;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setDepartment(int department) {
+        this.department = department;
+    }
 
     @Override
     public String toString(){
@@ -36,5 +48,7 @@ public class Employee {
                         "; Отдел: " + department +
                         ";";
     }
+
+
 
 }

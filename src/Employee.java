@@ -11,8 +11,7 @@ public class Employee {
         this.name = name;
         this.salary = salary;
         this.department = department;
-        counter++;
-        id = counter;
+        this.id = counter++;
     }
 
 
@@ -49,6 +48,16 @@ public class Employee {
                         ";";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return getId() == employee.getId() && getSalary() == employee.getSalary() && getDepartment() == employee.getDepartment() && Objects.equals(getName(), employee.getName());
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getId(), getSalary(), getDepartment());
+    }
 }
